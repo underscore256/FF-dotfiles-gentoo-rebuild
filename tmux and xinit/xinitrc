@@ -1,0 +1,9 @@
+xwallpaper --zoom ~/Pictures/Wallpapers/wall2.png &
+eval $(dbus-launch --sh-syntax)
+dbus-update-activation-environment DISPLAY XAUTHORITY
+pulseaudio &
+tmux new-session -d -s PINS &
+export PATH="$PATH:/var/lib/flatpak/exports/bin:$HOME/.local/share/flatpak/exports/bin"
+redshift &
+exec sxbar &
+exec sxwm 
