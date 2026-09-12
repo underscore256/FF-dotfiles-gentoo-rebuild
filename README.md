@@ -1,2 +1,3 @@
 # FF-dotfiles-gentoo-rebuild
-my dotfiles for gentoo desktop 
+my dotfiles for gentoo desktop
+quite unorganized
