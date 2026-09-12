@@ -1,0 +1,49 @@
+# layout and style
+bottom_bar          : false
+height              : 30
+vertical_padding    : 0
+horizontal_padding  : 300
+text_padding        : 0
+border              : false
+border_width        : 0
+background_colour   : #000000
+foreground_colour   : #ffffff
+border_colour       : #717394
+font                : Terminess Nerd Font
+font_size           : 22
+
+# modules
+module.0.name       : clock
+module.0.cmd        : date '+%H:%M'
+module.0.enabled    : true
+module.0.interval   : 1
+
+module.1.name       : date
+module.1.cmd        : date '+%A %m %Y'
+module.1.enabled    : true
+module.1.interval   : 60
+
+module.2.name       : battery
+module.2.cmd        : cat /sys/class/power_supply/BAT0/capacity 2>/dev/null | sed 's/$/%/' || echo 'N/A'
+module.2.enabled    : false
+module.2.interval   : 30
+
+module.4.name       : cpu
+module.4.cmd        : top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\([0-9.]*\)%* id.*/\1/' | awk '{print 100-$1"%"}'
+module.4.enabled    : false
+module.4.interval   : 3
+
+module.5.name       : mem
+module.5.cmd        : free -h | awk '/^Mem/ { print $3 }' | sed s/i//g
+module.5.enabled    : false
+module.5.interval   : 3
+
+workspaces.labels              : 1 2 3 4 5 6 7 8 9 
+workspaces.active_background   : #ffffff
+workspaces.active_foreground   : #000000
+workspaces.inactive_background : #000000
+workspaces.inactive_foreground : #000000
+workspaces.padding_left        : 10
+workspaces.padding_right       : 10
+workspaces.spacing             : 0
+workspaces.position            : left
